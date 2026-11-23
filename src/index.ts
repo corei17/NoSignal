@@ -270,7 +270,11 @@ app.get("/api/v1/brain/:shareLink", async (req, res) => {
       username: user.username,
       content,
     });
-  } catch (err) {}
+  } catch (err) {
+    return res.status(500).json({
+      message: "internal server error",
+    });
+  }
 });
 
 const PORT = 3000;
